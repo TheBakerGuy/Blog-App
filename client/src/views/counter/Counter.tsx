@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../hooks';
 import {
   decrement,
   increment,
   incrementByAmount,
-  incrementAsync,
   incrementIfOdd,
   selectCount,
-} from './counterSlice';
+} from '../../redux/reducers/counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
@@ -52,7 +51,7 @@ export function Counter() {
         </button>
         <button
           className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
+          onClick={() => {}}
         >
           Add Async
         </button>
