@@ -6,6 +6,7 @@ import 'dotenv/config';
 
 import postsRoutes from './routes/posts.js';
 import authRoutes from './routes/auth.js';
+import categoriesRoutes from './routes/categories.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/posts', postsRoutes);
 app.use('/users', authRoutes);
+app.use('/categories', categoriesRoutes);
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
