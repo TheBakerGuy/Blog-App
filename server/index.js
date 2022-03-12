@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import 'dotenv/config';
 
-import postsRoutes from './routes/posts.js';
+import recipesRoutes from './routes/recipes.js';
 import authRoutes from './routes/auth.js';
 import categoriesRoutes from './routes/categories.js';
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use(express.json());
 
-app.use('/posts', postsRoutes);
+app.use('/recipes', recipesRoutes);
 app.use('/users', authRoutes);
 app.use('/categories', categoriesRoutes);
 

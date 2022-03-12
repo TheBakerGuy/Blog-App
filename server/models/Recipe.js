@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const postSchema = mongoose.Schema({
+const recipeSchema = mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -18,12 +18,20 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    categories: {
-        type: Array,
+    food_type: {
+        type: String,
         required: false
-    }
+    },
+    ingredients: {
+        type: Array,
+        required: true
+    },
+    cook_time: {
+        type: String,
+        required: true
+    },
 }, { timestamps: true });
 
-const Post = mongoose.model('Post', postSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
-export default Post;
+export default Recipe;
