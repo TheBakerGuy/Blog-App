@@ -8,6 +8,7 @@ import NewRecipe from "./views/NewRecipe/NewRecipe";
 import Recipe from "./views/Recipe/Recipe";
 import Register from "./views/Register/Register";
 import Settings from "./views/Settings/Settings";
+import About from "./views/About/About";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
