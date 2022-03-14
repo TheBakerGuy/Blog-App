@@ -11,11 +11,11 @@ const NavBar = () => {
       <Flex
         className={styles.logoWrap}
         flex={["2", "1", "1", "1", "1"]}
-        fontSize={["18px", "20px", "25px", "25px", "25px"]}
+        fontSize={["25px", "30px", "35px", "38px", "40px"]}
       >
         <HamMenu user={user} />
         <NavLink to="/" className={styles.logoLink}>
-          Recipes Collection
+          RecipesCollection
         </NavLink>
       </Flex>
       <Flex

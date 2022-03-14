@@ -18,7 +18,7 @@ const HamMenu = ({ user }: IHamMenu) => {
           display={["block", "none", "none", "none"]}
           mr={2}
         />
-        <MenuList>
+        <MenuList className={styles.menu}>
           <NavLink to="/">
             <MenuItem>Home</MenuItem>
           </NavLink>
