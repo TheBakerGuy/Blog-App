@@ -12,11 +12,12 @@ const NavBar = () => {
           Recipes Collection
         </NavLink>
       </Flex>
-      <Flex display={["flex", "flex", "none", "none"]} flex={1} justify="center">
+      <Flex display={["flex", "flex", "none", "none"]} flex={1} justify="center" align="center">
         <IconButton
           icon={<i className="fa-solid fa-bars" />}
           aria-label="menu"
         />
+        <Switch onChange={toggleColorMode} size="sm" ml={3}/>
       </Flex>
       <Flex className={styles.mainMenu} display={["none", "none", "flex", "flex"]}>
         <NavLink to="/" className={styles.link}>
