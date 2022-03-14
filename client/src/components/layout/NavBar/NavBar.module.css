@@ -12,46 +12,37 @@
 
 /*links*/
 .mainMenu {
-  flex: 2;
+  flex: 3;
   justify-content: center;
-  gap: 7vw;
 }
 
 .logoWrap {
-  flex: 1;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  margin-left: 1rem;
 }
 
 .link {
-  font-size: 25px;
   text-decoration: none;
 }
 
 .logoLink {
-  font-size: 25px;
   text-decoration: none;
   font-weight: bold;
 }
 
 /*user*/
-.userWrapper {
-  flex: 1;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .userLinks {
   flex: 1;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .link > img {
   border-radius: 50%;
   object-fit: cover;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   color: transparent;
 }
 

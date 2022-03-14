@@ -2,10 +2,11 @@ import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 const breakpoints = createBreakpoints({
-  sm: "30em",
-  md: "55em",
-  lg: "62em",
-  xl: "80em",
+  sm: "55em",
+  md: "67.5em",
+  lg: "81em",
+  xl: "85em",
+  xxl: "88em",
 });
 
 const config: ThemeConfig = {
