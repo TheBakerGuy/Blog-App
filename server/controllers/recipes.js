@@ -9,7 +9,7 @@ export const getAllRecipes = async (req, res) => {
       recipe = await Recipe.find({ username });
     } else if (catName) {
       recipe = await Recipe.find({
-        categories: {
+        food_category: {
           $in: [catName],
         },
       });

@@ -18,8 +18,8 @@ const recipeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    food_type: {
-        type: String,
+    food_category: {
+        type: Array,
         required: false
     },
     ingredients: {

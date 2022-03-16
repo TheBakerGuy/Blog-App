@@ -6,27 +6,29 @@ import { useEffect } from "react";
 
 const Home = () => {
   const recipes = useAppSelector(selectRecipes);
+  const status = useAppSelector(selectStatus);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
 
-  console.log(recipes)
+  console.log(recipes);
+  console.log(status);
   return (
     <SimpleGrid columns={[1, 3, 3, 4, 5]} spacing={10} m={10}>
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
+      {recipes.length &&
+        recipes.map((rec) => {
+          return (
+            <RecipeCard
+              title={rec.title}
+              description={rec.description}
+              username={rec.username}
+              photo={rec.photo}
+              food_category={rec.food_category}
+            />
+          );
+        })}
     </SimpleGrid>
   );
 };

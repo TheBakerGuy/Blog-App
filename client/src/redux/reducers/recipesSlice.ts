@@ -1,9 +1,10 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../store";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 import { fetchRecipes } from '../services/recipesAPI';
+import { IRecipes } from '../../types/recipes';
 
 export interface RecipesState {
-  data: [];
+  data: IRecipes[];
   status: "idle" | "loading" | "failed";
 }
 
