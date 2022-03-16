@@ -1,17 +1,29 @@
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useColorMode, Flex, Switch, Box } from "@chakra-ui/react";
+import { useColorMode, Flex, Switch, Box, Avatar, AvatarBadge } from "@chakra-ui/react";
 import HamMenu from "../HamMenu/HamMenu";
 
 const NavBar = () => {
   const user = true;
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const breakPStyles = {
+    logoFlex: ["2", "1", "1", "1", "1"],
+    logoFontSize: ["25px", "30px", "35px", "38px", "40px"],
+    menuDisplay: ["none", "flex", "flex", "flex", "flex"],
+    menuGap: ["", "2em", "2em", "3em", "5em"],
+    menuFontSize: ["", "20px", "25px", "25px", "25px"],
+    userLinksGap: ["1rem", "1.5rem", "1.5rem", "1.5rem"],
+    userLinksJustify: ["end", "center", "center", "center", "center"],
+    userLinksMargin: ["20px", "0px", "0px", "0px", "0px"],
+  };
+
   return (
     <Flex className={styles.navBar} background={colorMode === "light" ? "white" : "black"}>
       <Flex
         className={styles.logoWrap}
-        flex={["2", "1", "1", "1", "1"]}
-        fontSize={["25px", "30px", "35px", "38px", "40px"]}
+        flex={breakPStyles.logoFlex}
+        fontSize={breakPStyles.logoFontSize}
       >
         <HamMenu user={user} />
         <NavLink to="/" className={styles.logoLink}>
@@ -20,9 +32,9 @@ const NavBar = () => {
       </Flex>
       <Flex
         className={styles.mainMenu}
-        display={["none", "flex", "flex", "flex", "flex"]}
-        gap={["", "2em", "2em", "5em", "5em"]}
-        fontSize={["", "20px", "25px", "25px", "25px"]}
+        display={breakPStyles.menuDisplay}
+        gap={breakPStyles.menuGap}
+        fontSize={breakPStyles.menuFontSize}
       >
         <NavLink to="/" className={styles.link}>
           Home
@@ -39,19 +51,18 @@ const NavBar = () => {
       </Flex>
       <Flex
         className={styles.userLinks}
-        gap={["1rem", "1.5rem", "1.5rem", "1.5rem"]}
-        justify={["end", "center", "center", "center", "center"]}
-        mr={["20px", "0px", "0px", "0px", "0px"]}
+        gap={breakPStyles.userLinksGap}
+        justify={breakPStyles.userLinksJustify}
+        mr={breakPStyles.userLinksMargin}
       >
-        <NavLink to="/settings" className={styles.link} hidden={!user}>
-          <img src="https://picsum.photos/73/73" alt="profile-pic" />
+        <NavLink to={user ? "/settings" : "/login"} className={styles.link}>
+          <Avatar size="sm" src="https://picsum.photos/73/73" name="user">
+            <AvatarBadge boxSize="1.25em" bg={user ? "green.500" : "tomato"} />
+          </Avatar>
         </NavLink>
         <Box as="button" hidden={!user}>
           <i className="fa-solid fa-right-from-bracket"></i>
         </Box>
-        <NavLink to="/login" className={styles.link} hidden={user}>
-          <i className="fa-solid fa-right-to-bracket"></i>
-        </NavLink>
         <Switch onChange={toggleColorMode} size="sm" />
       </Flex>
     </Flex>

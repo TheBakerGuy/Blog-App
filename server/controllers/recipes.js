@@ -16,7 +16,7 @@ export const getAllRecipes = async (req, res) => {
     } else {
       recipe = await Recipe.find();
     }
-    res.status(200).json(post);
+    res.status(200).json(recipe);
   } catch (error) {
     res.status(500).json(error);
   }
