@@ -1,12 +1,13 @@
-import { MenuButton, Menu, IconButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { MenuButton, Menu, IconButton, MenuList, MenuItem, Box } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import styles from './HamMenu.module.css';
 
 interface IHamMenu {
   user: boolean;
+  openModal: () => void;
 }
 
-const HamMenu = ({ user }: IHamMenu) => {
+const HamMenu = ({ user, openModal }: IHamMenu) => {
   return (
     <>
       <Menu>
@@ -22,9 +23,9 @@ const HamMenu = ({ user }: IHamMenu) => {
           <NavLink to="/">
             <MenuItem>Home</MenuItem>
           </NavLink>
-          <NavLink to="/recipe/new">
-            <MenuItem>Recipe<i className={`fa-solid fa-plus ${styles.icon}`}></i></MenuItem>
-          </NavLink>
+          <Box hidden={!user} onClick={openModal}>
+            <MenuItem>Recipe<i className={`fa-solid fa-pencil ${styles.icon}`}></i></MenuItem>
+          </Box>
           <NavLink to="/about">
             <MenuItem>About</MenuItem>
           </NavLink>

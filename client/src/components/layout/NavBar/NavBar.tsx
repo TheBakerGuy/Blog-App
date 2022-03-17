@@ -1,11 +1,20 @@
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useColorMode, Flex, Switch, Box, Avatar, AvatarBadge } from "@chakra-ui/react";
+import { useAppDispatch } from '../../../hooks';
+import { recipeModalStateAction } from '../../../redux/reducers/modalSlice';
 import HamMenu from "../HamMenu/HamMenu";
 
 const NavBar = () => {
   const user = true;
   const { colorMode, toggleColorMode } = useColorMode();
+  const dispatch = useAppDispatch();
+
+  const openModal = () => {
+    dispatch(recipeModalStateAction({
+      isOpen: true,
+    }));
+  };
 
   const breakPStyles = {
     logoFlex: ["2", "1", "1", "1", "1"],
@@ -25,7 +34,7 @@ const NavBar = () => {
         flex={breakPStyles.logoFlex}
         fontSize={breakPStyles.logoFontSize}
       >
-        <HamMenu user={user} />
+        <HamMenu user={user} openModal={openModal}/>
         <NavLink to="/" className={styles.logoLink}>
           RecipesCollection
         </NavLink>
@@ -39,9 +48,9 @@ const NavBar = () => {
         <NavLink to="/" className={styles.link}>
           Home
         </NavLink>
-        <NavLink to="/recipe/new" className={styles.link}>
-          Receta<i className={`fa-solid fa-plus ${styles.icon}`}></i>
-        </NavLink>
+        <Box as="button" className={styles.link} hidden={!user} onClick={openModal}>
+          Receta<i className={`fa-solid fa-pencil ${styles.icon}`}></i>
+        </Box>
         <NavLink to="/about" className={styles.link}>
           About
         </NavLink>

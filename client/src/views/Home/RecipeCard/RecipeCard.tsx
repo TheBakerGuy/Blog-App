@@ -1,51 +1,53 @@
 import { Box, Image, Text, Button, Flex } from "@chakra-ui/react";
+import { IRecipes } from "../../../types/recipes";
 import styles from "./RecipeCard.module.css";
 
 interface IRecipeCard {
-  title: string;
-  food_category?: string[];
-  description: string;
-  username: string;
-  photo?: string;
+  recipes?: IRecipes[];
 }
 
-const RecipeCard = ({
-  title,
-  description,
-  username,
-  food_category,
-  photo = "https://picsum.photos/500/250",
-}: IRecipeCard) => {
+const RecipeCard = ({ recipes }: IRecipeCard) => {
   return (
-    <Box className={styles.recipeContainer}>
-      <Image className={styles.recipeImg} src={photo} alt={title} />
-      <Box p="6">
-        <Flex className={styles.titleWrapper}>
-          <Button className={styles.title} variant="link">
-            {title}
-          </Button>
-        </Flex>
-        <Flex className={styles.categWrapper}>
-          {food_category?.length &&
-            food_category?.map((category) => {
-              return (
-                <Button borderRadius="full" colorScheme="teal" mr={2} size="xs">
-                  {category}
-                </Button>
-              );
-            })}
-        </Flex>
-        <Box noOfLines={2} className={styles.descWrapper}>
-          <Text className={styles.descText}>{description}</Text>
-        </Box>
-        <Flex className={styles.userInfo}>
-          <span className={styles.by}>By:</span>
-          <Button className={styles.userName} variant="link">
-            {username}
-          </Button>
-        </Flex>
-      </Box>
-    </Box>
+    <>
+      {recipes?.length &&
+        recipes.map((recipe) => {
+          return (
+            <Box className={styles.recipeContainer} key={recipe._id}>
+              <Image
+                className={styles.recipeImg}
+                src={recipe.photo || "https://picsum.photos/500/250"}
+                alt={recipe.title}
+              />
+              <Box p="6">
+                <Flex className={styles.titleWrapper}>
+                  <Button className={styles.title} variant="link">
+                    {recipe.title}
+                  </Button>
+                </Flex>
+                <Flex className={styles.categWrapper}>
+                  {recipe.food_category?.length &&
+                    recipe.food_category?.map((category, index) => {
+                      return (
+                        <Button borderRadius="full" colorScheme="teal" mr={2} size="xs" key={index}>
+                          {category}
+                        </Button>
+                      );
+                    })}
+                </Flex>
+                <Box noOfLines={2} className={styles.descWrapper}>
+                  <Text className={styles.descText}>{recipe.description}</Text>
+                </Box>
+                <Flex className={styles.userInfo}>
+                  <span className={styles.by}>By:</span>
+                  <Button className={styles.userName} variant="link">
+                    {recipe.username}
+                  </Button>
+                </Flex>
+              </Box>
+            </Box>
+          );
+        })}
+    </>
   );
 };
 
