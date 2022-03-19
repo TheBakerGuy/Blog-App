@@ -19,16 +19,20 @@ const HamMenu = ({ user, openModal }: IHamMenu) => {
           display={["block", "none", "none", "none"]}
           mr={2}
         />
+
         <MenuList className={styles.menu}>
           <NavLink to="/">
             <MenuItem>Home</MenuItem>
           </NavLink>
+
           <Box hidden={!user} onClick={openModal}>
             <MenuItem>Recipe<i className={`fa-solid fa-pencil ${styles.icon}`}></i></MenuItem>
           </Box>
+
           <NavLink to="/about">
             <MenuItem>About</MenuItem>
           </NavLink>
+
           <MenuItem hidden={!user}>My Recipes</MenuItem>
         </MenuList>
       </Menu>

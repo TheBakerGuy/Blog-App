@@ -22,7 +22,7 @@ const Home = () => {
           <Spinner size="xl" />
         </Center>
       ) : (
-        <SimpleGrid columns={[1, 3, 3, 4, 5]} spacing={10} m={10}>
+        <SimpleGrid columns={[1, 2, 3, 4, 4]} spacing={10} m={10}>
           <RecipeCard recipes={data} />
         </SimpleGrid>
       )}

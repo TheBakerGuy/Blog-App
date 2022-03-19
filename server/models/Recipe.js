@@ -16,11 +16,11 @@ const recipeSchema = mongoose.Schema({
     },
     username: {
         type: String,
-        required: true
+        required: false
     },
     food_category: {
         type: Array,
-        required: false
+        required: true
     },
     ingredients: {
         type: Array,

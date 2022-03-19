@@ -29,6 +29,7 @@ const NavBar = () => {
 
   return (
     <Flex className={styles.navBar} background={colorMode === "light" ? "white" : "black"}>
+
       <Flex
         className={styles.logoWrap}
         flex={breakPStyles.logoFlex}
@@ -39,6 +40,7 @@ const NavBar = () => {
           RecipesCollection
         </NavLink>
       </Flex>
+
       <Flex
         className={styles.mainMenu}
         display={breakPStyles.menuDisplay}
@@ -58,6 +60,7 @@ const NavBar = () => {
           My Recipes
         </Box>
       </Flex>
+
       <Flex
         className={styles.userLinks}
         gap={breakPStyles.userLinksGap}
@@ -74,6 +77,7 @@ const NavBar = () => {
         </Box>
         <Switch onChange={toggleColorMode} size="sm" />
       </Flex>
+      
     </Flex>
   );
 };

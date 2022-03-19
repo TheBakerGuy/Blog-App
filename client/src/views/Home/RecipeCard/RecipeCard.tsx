@@ -9,7 +9,7 @@ interface IRecipeCard {
 const RecipeCard = ({ recipes }: IRecipeCard) => {
   return (
     <>
-      {recipes?.length &&
+      {!!recipes?.length &&
         recipes.map((recipe) => {
           return (
             <Box className={styles.recipeContainer} key={recipe._id}>
@@ -18,12 +18,14 @@ const RecipeCard = ({ recipes }: IRecipeCard) => {
                 src={recipe.photo || "https://picsum.photos/500/250"}
                 alt={recipe.title}
               />
+
               <Box p="6">
                 <Flex className={styles.titleWrapper}>
                   <Button className={styles.title} variant="link">
                     {recipe.title}
                   </Button>
                 </Flex>
+
                 <Flex className={styles.categWrapper}>
                   {recipe.food_category?.length &&
                     recipe.food_category?.map((category, index) => {
@@ -34,9 +36,11 @@ const RecipeCard = ({ recipes }: IRecipeCard) => {
                       );
                     })}
                 </Flex>
+
                 <Box noOfLines={2} className={styles.descWrapper}>
                   <Text className={styles.descText}>{recipe.description}</Text>
                 </Box>
+
                 <Flex className={styles.userInfo}>
                   <span className={styles.by}>By:</span>
                   <Button className={styles.userName} variant="link">
