@@ -1,0 +1,23 @@
+.icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.inputGroup {
+  margin-top: 10px;
+}
+
+.container {
+  position: relative;
+}
+
+.catWrapper {
+  width: 100%;
+  height: 200px;
+  z-index: 3000;
+  border: 1px solid black;
+  overflow-y: scroll;
+  position: absolute;
+  top: 80px;
+  background: white;
+}

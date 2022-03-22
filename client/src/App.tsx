@@ -9,14 +9,15 @@ import Recipe from "./views/Recipe/Recipe";
 import Register from "./views/Register/Register";
 import Settings from "./views/Settings/Settings";
 import About from "./views/About/About";
-import RecipeModal from './components/common/Modal/RecipeModal';
+import RecipeModal from '../src/components/Modals/RecipeModal/RecipeModal';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <RecipeModal />
+        <RecipeModal/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
