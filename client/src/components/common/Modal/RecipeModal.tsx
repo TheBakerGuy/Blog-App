@@ -17,7 +17,8 @@ import {
   FormControl,
   FormLabel,
   Flex,
-  Input as ChakraInput
+  Input as ChakraInput,
+  Textarea
 } from "@chakra-ui/react";
 
 interface initialValuesProps {
@@ -64,6 +65,7 @@ const RecipeModal = () => {
             dispatch(createRecipe(values));
             actions.resetForm();
             onClose();
+            console.log(values)
           }}
         >
           {(FormikProps) => {
@@ -94,13 +96,13 @@ const RecipeModal = () => {
                             <div>
                               {values.ingredients.map((ingr, i) => (
                                 <Flex key={i}>
-                                  <Field placeholder="ingredientes..." name={`ingredients[${i}]`} as={Input}/>
+                                  <Field placeholder="ingredientes..." name={`ingredients[${i}]`} as={ChakraInput}/>
                                   {i > 0 && (
-                                    <Button onClick={() => remove(i)}>
+                                    <Button onClick={() => remove(i)} variant="unstyled">
                                       <i className={`fa-solid fa-circle-minus ${styles.icon}`} />
                                     </Button>
                                   )}
-                                  <Button onClick={() => push("")}>
+                                  <Button onClick={() => push("")} variant="unstyled">
                                     <i className={`fa-solid fa-circle-plus ${styles.icon}`} />
                                   </Button>
                                 </Flex>
@@ -120,13 +122,13 @@ const RecipeModal = () => {
                             <div>
                               {values.food_category.map((ingr, i) => (
                                 <Flex key={i}>
-                                  <Field placeholder="categoria..." name={`food_category[${i}]`} as={Input}/>
+                                  <Field placeholder="categoria..." name={`food_category[${i}]`} as={ChakraInput}/>
                                   {i > 0 && (
-                                    <Button onClick={() => remove(i)}>
+                                    <Button onClick={() => remove(i)} variant="unstyled">
                                       <i className={`fa-solid fa-circle-minus ${styles.icon}`} />
                                     </Button>
                                   )}
-                                  <Button onClick={() => push("")}>
+                                  <Button onClick={() => push("")} variant="unstyled">
                                     <i className={`fa-solid fa-circle-plus ${styles.icon}`} />
                                   </Button>
                                 </Flex>
@@ -140,7 +142,7 @@ const RecipeModal = () => {
                     <Input
                       id="cook_time"
                       placeholder="20 min..."
-                      label="Teimpo de cocion"
+                      label="Tiempo de cocion"
                       name="cook_time"
                       isRequired={true}
                     />
@@ -151,8 +153,7 @@ const RecipeModal = () => {
                         placeholder="Escribe paso a paso..."
                         name="description"
                         id="description"
-                        onChange={handleChange}
-                        as="textarea"
+                        as={Textarea}
                       />
                     </FormControl>
                   </ModalBody>
