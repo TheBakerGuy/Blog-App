@@ -21,3 +21,9 @@
   top: 80px;
   background: white;
 }
+
+.buttonsWrapper {
+  gap: 20px;
+  justify-content: flex-end;
+  margin: 40px auto;
+}

@@ -160,6 +160,10 @@ const NewRecipeForm: React.FC<INewRecipesForm> = (props) => {
               name="description"
               isRequired={true}
             />
+            <Flex className={styles.buttonsWrapper}>
+              <Button size="lg">Cancelar</Button>
+              <Button size="lg" colorScheme='teal' variant='outline'>Crear</Button>
+            </Flex>
           </Form>
         );
       }}
