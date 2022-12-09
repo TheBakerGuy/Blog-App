@@ -1,4 +1,2 @@
-# Blog-App
-First full stack app
-
-I will be using react, redux, chakra ui for the frontend and nodejs, express, mongo for the backend 
+# nodejs + react
+this is a full stack app that uses nodejs with express library for the server side and react for the frontend, using redux as a state manangment system and chrakra UI for component library. 
